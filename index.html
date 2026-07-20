@@ -275,59 +275,12 @@ footer{background:var(--text);color:rgba(255,255,255,0.45);padding:48px 5%}
     <div class="lead-form">
       <h3>Изтегли безплатно</h3>
       <p>Въведи имейл адреса си и получи ръководството незабавно</p>
-      <style>
-  #sib-container input:-ms-input-placeholder{font-family:'Inter',sans-serif;color:rgba(255,255,255,0.3)}
-  #sib-container input::placeholder{font-family:'Inter',sans-serif;color:rgba(255,255,255,0.3)}
-  #sib-container a{text-decoration:underline;color:#C7A06B}
-  .sib-form-message-panel{display:none}
-  #sib-container{background:transparent!important;border:none!important;max-width:100%!important;text-align:left!important}
-  #sib-container .sib-form-block{padding:0!important}
-  #sib-container form{margin:0}
-  #sib-container .entry__label{display:none}
-  #sib-container .entry__specification{display:none}
-  #sib-container .sib-input{margin-bottom:14px}
-  #sib-container input.input{width:100%;background:rgba(255,255,255,0.07)!important;border:0.5px solid rgba(255,255,255,0.14)!important;color:#fff!important;padding:12px 15px!important;font-family:'Inter',sans-serif!important;font-size:13px!important;border-radius:2px!important;outline:none;box-sizing:border-box}
-  #sib-container input.input:focus{border-color:#C7A06B!important}
-  #sib-container .sib-form-block__button{width:100%!important;background:#C7A06B!important;color:#fff!important;border:none!important;padding:14px!important;font-family:'Inter',sans-serif!important;font-size:12px!important;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border-radius:2px!important;margin-top:6px!important}
-  #sib-container .sib-form-block__button:hover{background:#A07840!important}
-</style>
-<div class="sib-form" style="text-align:left;background-color:transparent">
-  <div id="sib-form-container" class="sib-form-container">
-    <div id="error-message" class="sib-form-message-panel" style="font-family:'Inter',sans-serif;font-size:13px;text-align:left;color:#ff8080;background-color:#3a1a1a;border:1px solid #ff4949;border-radius:4px;padding:10px 14px;margin-bottom:14px">
-      <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-        <span class="sib-form-message-panel__inner-text">Възникна грешка. Моля, опитай отново.</span>
-      </div>
-    </div>
-    <div id="success-message" class="sib-form-message-panel" style="font-family:'Inter',sans-serif;font-size:13px;text-align:left;color:#5fe0a0;background-color:#123a26;border:1px solid #13ce66;border-radius:4px;padding:10px 14px;margin-bottom:14px">
-      <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-        <span class="sib-form-message-panel__inner-text">Благодарим! Провери имейла си — ръководството пътува към теб.</span>
-      </div>
-    </div>
-    <div id="sib-container" class="sib-container--large sib-container--vertical">
-      <form id="sib-form" method="POST" action="https://ee1ad36e.sibforms.com/serve/MUIFAC65B6ITy6KMx3u1XJWU2iPdbhN-rk7aMnGjEKEZN-K_OnJv406CtAxMv0w48fnr8QdHOASmZOS9nkypzOrjsmQMBfS0tk1jzrCx75ZL7m97NXW0hy0hZJOYF80saODqHUMvAuZKVujWBBpRgHVjsz0E6SzdQjb5oZ1obx6fD5BKhadX2Bv2LdMZm4MJ9HXpv-WWY1wxeBI68w==" data-type="subscription">
-        <div class="sib-input sib-form-block">
-          <div class="form__entry entry_block">
-            <div class="form__label-row">
-              <label class="entry__label" for="EMAIL" data-required="*">Имейл адрес</label>
-              <div class="entry__field">
-                <input class="input" type="text" id="EMAIL" name="EMAIL" autocomplete="off" value="" placeholder="Имейл адрес" data-required="true" required />
-              </div>
-            </div>
-            <label class="entry__error entry__error--primary" style="font-family:'Inter',sans-serif;font-size:13px;color:#ff8080"></label>
-            <label class="entry__specification">Ще получиш ръководството веднага в пощата си.</label>
-          </div>
-        </div>
-        <div class="sib-form-block" style="text-align:left">
-          <button class="sib-form-block__button sib-form-block__button-with-loader" form="sib-form" type="submit">
-            Изпрати ми ръководството →
-          </button>
-        </div>
-        <input type="text" name="email_address_check" value="" class="input--hidden" style="display:none">
+      <form action="https://ee1ad36e.sibforms.com/serve/MUIFAC65B6ITy6KMx3u1XJWU2iPdbhN-rk7aMnGjEKEZN-K_OnJv406CtAxMv0w48fnr8QdHOASmZOS9nkypzOrjsmQMBfS0tk1jzrCx75ZL7m97NXW0hy0hZJOYF80saODqHUMvAuZKVujWBBpRgHVjsz0E6SzdQjb5oZ1obx6fD5BKhadX2Bv2LdMZm4MJ9HXpv-WWY1wxeBI68w==" method="post" target="_blank">
+        <div class="form-group"><input type="email" name="EMAIL" placeholder="Имейл адрес" required /></div>
+        <input type="text" name="email_address_check" value="" style="display:none">
         <input type="hidden" name="locale" value="en">
+        <button type="submit" class="btn-gold-full">Изпрати ми ръководството →</button>
       </form>
-    </div>
-  </div>
-</div>
       <p class="form-note">Без спам. Отпиши се по всяко време.</p>
     </div>
   </div>
@@ -407,25 +360,5 @@ function toggleFaq(btn){
 }
 </script>
 
-<script>
-  window.REQUIRED_CODE_ERROR_MESSAGE = 'Моля, избери код на държава';
-  window.LOCALE = 'en';
-  window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "Моля, въведи валиден имейл адрес.";
-  window.REQUIRED_ERROR_MESSAGE = "Моля, попълни имейл адреса си.";
-  window.GENERIC_INVALID_MESSAGE = "Моля, въведи валиден имейл адрес.";
-  window.INVALID_NUMBER = "Моля, въведи валиден имейл адрес.";
-  window.INVALID_DATE = "Please enter a valid date";
-  window.REQUIRED_MULTISELECT_MESSAGE = 'Please select at least 1 option';
-  window.translation = {
-    common: {
-      selectedList: '{quantity} list selected',
-      selectedLists: '{quantity} lists selected',
-      selectedOption: '{quantity} selected',
-      selectedOptions: '{quantity} selected',
-    }
-  };
-  var AUTOHIDE = Boolean(0);
-</script>
-<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 </body>
 </html>
