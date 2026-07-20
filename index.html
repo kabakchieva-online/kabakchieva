@@ -41,7 +41,19 @@ footer{background:var(--text);color:rgba(255,255,255,0.45);padding:48px 5%}
 .footer-col a:hover{color:var(--gold)}
 .footer-bottom{max-width:1200px;margin:28px auto 0;padding-top:20px;border-top:0.5px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;font-size:11px}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:768px){.nav-links{display:none}.footer-inner{grid-template-columns:1fr;gap:28px}}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px;z-index:101}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--text);transition:0.25s}
+.nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle.open span:nth-child(2){opacity:0}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:768px){
+.nav-toggle{display:flex}
+.nav-cta{display:none}
+.nav-links{display:none;flex-direction:column;gap:0;position:fixed;top:64px;left:0;right:0;background:var(--bg);border-bottom:0.5px solid rgba(199,160,107,0.18);padding:6px 6% 14px}
+.nav-links.open{display:flex}
+.nav-links a{display:block;padding:14px 0;border-bottom:0.5px solid rgba(199,160,107,0.12)}
+.footer-inner{grid-template-columns:1fr;gap:28px}
+}
 
 .hero{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;padding-top:64px}
 .hero-left{display:flex;align-items:center;padding:60px 4% 60px 7%;background:var(--bg)}
@@ -135,13 +147,16 @@ footer{background:var(--text);color:rgba(255,255,255,0.45);padding:48px 5%}
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="logo">Десислава <span>Кабакчиева</span></a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="desislava-za-men.html">За мен</a></li>
       <li><a href="desislava-uslugi.html">Услуги</a></li>
       <li><a href="index.html#process">Процес</a></li>
       <li><a href="desislava-kontakti.html">Контакти</a></li>
     </ul>
     <button class="nav-cta">Запази консултация</button>
+    <button class="nav-toggle" id="navToggle" aria-label="Меню" onclick="document.getElementById('navLinks').classList.toggle('open');this.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
@@ -260,9 +275,12 @@ footer{background:var(--text);color:rgba(255,255,255,0.45);padding:48px 5%}
     <div class="lead-form">
       <h3>Изтегли безплатно</h3>
       <p>Въведи имейл адреса си и получи ръководството незабавно</p>
-      <div class="form-group"><input type="text" placeholder="Твоето име" /></div>
-      <div class="form-group"><input type="email" placeholder="Имейл адрес" /></div>
-      <button class="btn-gold-full">Изпрати ми ръководството →</button>
+      <form action="https://assets.mailerlite.com/jsonp/2520983/forms/193525499497023232/subscribe" method="post" target="_blank">
+        <div class="form-group"><input type="text" name="fields[name]" placeholder="Твоето име" /></div>
+        <div class="form-group"><input type="email" name="fields[email]" placeholder="Имейл адрес" required /></div>
+        <input type="hidden" name="ml-submit" value="1">
+        <button type="submit" class="btn-gold-full">Изпрати ми ръководството →</button>
+      </form>
       <p class="form-note">Без спам. Отпиши се по всяко време.</p>
     </div>
   </div>
@@ -304,7 +322,6 @@ footer{background:var(--text);color:rgba(255,255,255,0.45);padding:48px 5%}
   <div class="footer-col">
     <h4>Информация</h4>
     <a href="desislava-za-men.html">За мен</a>
-    <a href="#">Блог</a>
     <a href="#">FAQ</a>
     <a href="#">Контакти</a>
     <a href="#">Поверителност</a>

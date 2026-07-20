@@ -74,7 +74,19 @@ footer{background:var(--text);color:rgba(255,255,255,0.45);padding:48px 5%}
 .footer-col a:hover{color:var(--gold)}
 .footer-bottom{max-width:1200px;margin:28px auto 0;padding-top:20px;border-top:0.5px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;font-size:11px}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:768px){.nav-links{display:none}.footer-inner{grid-template-columns:1fr;gap:28px}}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px;z-index:101}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--text);transition:0.25s}
+.nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle.open span:nth-child(2){opacity:0}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:768px){
+.nav-toggle{display:flex}
+.nav-cta{display:none}
+.nav-links{display:none;flex-direction:column;gap:0;position:fixed;top:64px;left:0;right:0;background:var(--bg);border-bottom:0.5px solid rgba(199,160,107,0.18);padding:6px 6% 14px}
+.nav-links.open{display:flex}
+.nav-links a{display:block;padding:14px 0;border-bottom:0.5px solid rgba(199,160,107,0.12)}
+.footer-inner{grid-template-columns:1fr;gap:28px}
+}
 
 /* ── HERO ── */
 .us-hero{display:grid;grid-template-columns:1fr 1fr;min-height:88vh;padding-top:64px}
@@ -179,13 +191,16 @@ footer{background:var(--text);color:rgba(255,255,255,0.45);padding:48px 5%}
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="logo">Десислава <span>Кабакчиева</span></a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="desislava-za-men.html">За мен</a></li>
       <li><a href="desislava-uslugi.html" class="active">Услуги</a></li>
       <li><a href="index.html#process">Процес</a></li>
       <li><a href="desislava-kontakti.html">Контакти</a></li>
     </ul>
     <button class="nav-cta">Запази консултация</button>
+    <button class="nav-toggle" id="navToggle" aria-label="Меню" onclick="document.getElementById('navLinks').classList.toggle('open');this.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
