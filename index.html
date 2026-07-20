@@ -275,11 +275,13 @@ footer{background:var(--text);color:rgba(255,255,255,0.45);padding:48px 5%}
     <div class="lead-form">
       <h3>Изтегли безплатно</h3>
       <p>Въведи имейл адреса си и получи ръководството незабавно</p>
-      <form action="https://ee1ad36e.sibforms.com/serve/MUIFAC65B6ITy6KMx3u1XJWU2iPdbhN-rk7aMnGjEKEZN-K_OnJv406CtAxMv0w48fnr8QdHOASmZOS9nkypzOrjsmQMBfS0tk1jzrCx75ZL7m97NXW0hy0hZJOYF80saODqHUMvAuZKVujWBBpRgHVjsz0E6SzdQjb5oZ1obx6fD5BKhadX2Bv2LdMZm4MJ9HXpv-WWY1wxeBI68w==" method="post" target="_blank">
-        <div class="form-group"><input type="email" name="EMAIL" placeholder="Имейл адрес" required /></div>
+      <form id="sib-form" action="https://ee1ad36e.sibforms.com/serve/MUIFAC65B6ITy6KMx3u1XJWU2iPdbhN-rk7aMnGjEKEZN-K_OnJv406CtAxMv0w48fnr8QdHOASmZOS9nkypzOrjsmQMBfS0tk1jzrCx75ZL7m97NXW0hy0hZJOYF80saODqHUMvAuZKVujWBBpRgHVjsz0E6SzdQjb5oZ1obx6fD5BKhadX2Bv2LdMZm4MJ9HXpv-WWY1wxeBI68w==" method="POST" data-type="subscription">
+        <div id="error-message" style="display:none;background:#3a1a1a;color:#ff8080;border:1px solid #ff4949;border-radius:4px;padding:10px 14px;font-size:12px;margin-bottom:14px;text-align:left"></div>
+        <div id="success-message" style="display:none;background:#123a26;color:#5fe0a0;border:1px solid #13ce66;border-radius:4px;padding:10px 14px;font-size:12px;margin-bottom:14px;text-align:left"></div>
+        <div class="form-group"><input type="text" id="EMAIL" name="EMAIL" placeholder="Имейл адрес" required /></div>
         <input type="text" name="email_address_check" value="" style="display:none">
         <input type="hidden" name="locale" value="en">
-        <button type="submit" class="btn-gold-full">Изпрати ми ръководството →</button>
+        <button form="sib-form" type="submit" class="btn-gold-full">Изпрати ми ръководството →</button>
       </form>
       <p class="form-note">Без спам. Отпиши се по всяко време.</p>
     </div>
@@ -359,5 +361,26 @@ function toggleFaq(btn){
   if(!isOpen){ans.classList.add("open");icon.textContent="−";}
 }
 </script>
+
+<script>
+  window.REQUIRED_CODE_ERROR_MESSAGE = 'Моля, избери код на държава';
+  window.LOCALE = 'en';
+  window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "Моля, въведи валиден имейл адрес.";
+  window.REQUIRED_ERROR_MESSAGE = "Моля, попълни имейл адреса си.";
+  window.GENERIC_INVALID_MESSAGE = "Моля, въведи валиден имейл адрес.";
+  window.INVALID_NUMBER = "Моля, въведи валиден имейл адрес.";
+  window.INVALID_DATE = "Please enter a valid date";
+  window.REQUIRED_MULTISELECT_MESSAGE = 'Please select at least 1 option';
+  window.translation = {
+    common: {
+      selectedList: '{quantity} list selected',
+      selectedLists: '{quantity} lists selected',
+      selectedOption: '{quantity} selected',
+      selectedOptions: '{quantity} selected',
+    }
+  };
+  var AUTOHIDE = Boolean(0);
+</script>
+<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 </body>
 </html>
