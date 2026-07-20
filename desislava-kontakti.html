@@ -179,7 +179,7 @@ footer{background:var(--text);color:rgba(255,255,255,0.45);padding:48px 5%}
     <div class="divider"></div>
     <p style="font-size:13px;color:var(--text2);font-weight:300;margin-bottom:32px;line-height:1.75">Опиши накратко своята ситуация и аз ще се свържа с теб в рамките на 24 часа.</p>
 
-    <form class="ct-form" id="contactForm" onsubmit="handleSubmit(event)" novalidate>
+    <form class="ct-form" id="contactForm" action="https://formspree.io/f/xqerborq" method="POST" onsubmit="handleSubmit(event)" novalidate>
       <div class="ct-form-row">
         <div class="ct-field">
           <label for="name">Име</label>
@@ -313,25 +313,35 @@ function handleSubmit(e) {
   const form = document.getElementById('contactForm');
   const success = document.getElementById('successMsg');
   const name = document.getElementById('name').value.trim();
-  const phone = document.getElementById('phone').value.trim();
   const email = document.getElementById('email').value.trim();
-  const topic = document.getElementById('topic').value.trim();
   const msg = document.getElementById('message').value.trim();
   if (!name || !email || !msg) {
     alert('Моля попълни задължителните полета.');
     return;
   }
-  const subject = encodeURIComponent('Запитване за консултация от ' + name);
-  const body = encodeURIComponent(
-    'Име: ' + name + '\n' +
-    (phone ? 'Телефон: ' + phone + '\n' : '') +
-    'Имейл: ' + email + '\n' +
-    (topic ? 'Тема: ' + topic + '\n' : '') +
-    '\nСъобщение:\n' + msg
-  );
-  window.open('mailto:desislavakabakchieva73@gmail.com?subject=' + subject + '&body=' + body, '_blank');
-  form.style.display = 'none';
-  success.style.display = 'block';
+  const submitBtn = form.querySelector('.ct-submit');
+  const originalText = submitBtn.innerHTML;
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = 'Изпращане...';
+
+  fetch(form.action, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  }).then(response => {
+    if (response.ok) {
+      form.style.display = 'none';
+      success.style.display = 'block';
+    } else {
+      alert('Възникна грешка. Моля, опитай отново или се обади directно на телефона по-долу.');
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalText;
+    }
+  }).catch(() => {
+    alert('Възникна грешка. Моля, опитай отново или се обади directно на телефона по-долу.');
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalText;
+  });
 }
 </script>
 </body>
