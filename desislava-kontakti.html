@@ -149,7 +149,7 @@ footer{background:var(--text);color:rgba(255,255,255,0.45);padding:48px 5%}
       <li><a href="index.html#process">Процес</a></li>
       <li><a href="desislava-kontakti.html" class="active">Контакти</a></li>
     </ul>
-    <button class="nav-cta">Запази консултация</button>
+    <a href="desislava-kontakti.html" class="nav-cta" style="text-decoration:none;display:inline-block">Запиши се за консултация</a>
     <button class="nav-toggle" id="navToggle" aria-label="Меню" onclick="document.getElementById('navLinks').classList.toggle('open');this.classList.toggle('open')">
       <span></span><span></span><span></span>
     </button>
@@ -313,12 +313,23 @@ function handleSubmit(e) {
   const form = document.getElementById('contactForm');
   const success = document.getElementById('successMsg');
   const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
   const email = document.getElementById('email').value.trim();
+  const topic = document.getElementById('topic').value.trim();
   const msg = document.getElementById('message').value.trim();
   if (!name || !email || !msg) {
     alert('Моля попълни задължителните полета.');
     return;
   }
+  const subject = encodeURIComponent('Запитване за консултация от ' + name);
+  const body = encodeURIComponent(
+    'Име: ' + name + '\n' +
+    (phone ? 'Телефон: ' + phone + '\n' : '') +
+    'Имейл: ' + email + '\n' +
+    (topic ? 'Тема: ' + topic + '\n' : '') +
+    '\nСъобщение:\n' + msg
+  );
+  window.open('mailto:desislavakabakchieva73@gmail.com?subject=' + subject + '&body=' + body, '_blank');
   form.style.display = 'none';
   success.style.display = 'block';
 }
